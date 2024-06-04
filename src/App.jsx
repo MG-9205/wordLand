@@ -1,8 +1,8 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Navbar from "./assets/components/Navbar";
-import Footer from "./assets/components/Footer";
-import Home from "./assets/pages/Home";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
 const Main = () => {
   return (
