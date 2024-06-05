@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily:{
         Montserrat:["Montserrat", "sans-serif"],
-        Satisfy:["Satisfy", "cursive"]
+        DancingScript:["Dancing Script" ,"cursive"]
       },
       colors: {
         primary: '#B2022F', // Example primary color
