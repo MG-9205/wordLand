@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import img1 from "../assets/images/home2.webp";
 import img2 from "../assets/images/bookReading1.png";
+import Card1 from "../components/Card1";
 
 export default function Home() {
   return (
@@ -30,19 +31,20 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div>
+      {/* Famous Book section */}
+      <div className="pt-8 overflow-x-hidden">
         <div className="flex justify-between items-center px-8 font-DancingScript gap-2">
           <div className="">
             <p className="w-[200px] text-[2.3rem] font-bold">Top interesting</p>
           </div>
-          <div className="w-[100%]">
+          <div className="w-[100%] hidden md:block">
             <hr className="border-1 border-black" />
           </div>
           <div>
             <img src={img2} alt="" className="h-[100px] w-[120px]" />
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center pt-6 md:pt-2">
           <p className="w-[700px] text-center font-Montserrat text-[1rem] font-semibold">
             Welcome to Wordland, your ultimate literary destination. Explore our
             curated collection of classics, bestsellers, and hidden gems. Every
@@ -50,7 +52,16 @@ export default function Home() {
             beyond the ordinary
           </p>
         </div>
+      <div className="flex justify-around items-center flex-wrap gap-y-4 md:gap-4 lg:w-[1000px] m-auto py-10 ">
+        <Card1/>
+        <Card1/>
+        <Card1/>
+        <Card1/>
+        <Card1/>
       </div>
+      
+      </div>
+      
     </>
   );
 }
