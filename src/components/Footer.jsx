@@ -30,7 +30,7 @@ const Footer = React.memo(() => {
           <div className="flex flex-col gap-1">
             <span className="font-semibold">Quick Link</span>
             <span>Home</span>
-            <span>Profile</span>
+            <span>Blogs</span>
             <span>FeedBack</span>
           </div>
           <div className="flex flex-col gap-1">

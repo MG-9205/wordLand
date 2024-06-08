@@ -96,7 +96,7 @@ const Navbar = () => {
               </div>
             </li>
             <li className="hover:bg-slate-400 px-5 py-2 rounded-[25px]">
-              <NavLink to="/profile">Profile</NavLink>
+              <NavLink to="/profile">Blogs</NavLink>
             </li>
             <li className="hover:bg-slate-400 px-5 py-2 rounded-[25px]">
               <NavLink to="/feedback">Feedback</NavLink>
@@ -119,7 +119,7 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={`absolute right-0 top-[70px] flex flex-col bg-slate-500 px-6 py-4 md:w-[50vw] lg:w-[30vw] transition-transform duration-500 ${
+        className={`absolute right-0 top-[70px] flex flex-col bg-black  h-[100vh] px-6 py-4 md:w-[50vw] lg:w-[30vw] transition-transform duration-500 ${
           state.isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -149,7 +149,7 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/profile">Blogs</NavLink>
           </li>
           <li>
             <NavLink to="/feedback">Feedback</NavLink>
