@@ -22,7 +22,7 @@ const LoginButton = memo(({ visibility }) => (
     className={`${visibility} flex justify-center items-center gap-1 bg-slate-400 py-2 px-2 rounded-[25px] w-[140px]`}
   >
     <button className="bg-black rounded-[25px] px-5 h-[30px] text-white text-[1rem]">
-      <Link to="/login">Login</Link>
+      <Link to="/Login">Login</Link>
     </button>
     <div className="rounded-full bg-black w-[30px] h-[30px] flex justify-center items-center">
       <User className="text-white" />
