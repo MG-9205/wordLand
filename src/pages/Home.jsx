@@ -9,6 +9,7 @@ import img9 from "../assets/images/marktwain.jpg";
 import img10 from "../assets/images/ShakespeareWilliam.webp";
 import img5 from "../assets/images/authorWord.png";
 import img6 from "../assets/images/blogging.png";
+import img11 from '../assets/images/bookImage1.jpg'
 import Card1 from "../components/Card1";
 import { useEffect, useState } from "react";
 
@@ -96,6 +97,55 @@ function AuthorSection() {
 }
 
 export default function Home() {
+
+  const books = [
+    {
+        bookName: "To Kill a Mockingbird",
+        authorName: "Harper Lee",
+        imageUrl:img11,
+        shortDescription: "A novel about the serious issues of rape and racial inequality.",
+        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
+        noOfStars: 5,
+        genre: "Fiction"
+    },
+    {
+        bookName: "To Kill a Mockingbird",
+        authorName: "George Orwell",
+        imageUrl: img11,
+        shortDescription: "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.",
+        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
+        noOfStars: 4,
+        genre: "Dystopian"
+    },
+    {
+        bookName: "The Great Gatsby",
+        authorName: "F. Scott Fitzgerald",
+        imageUrl: img11,
+        shortDescription: "A novel about the American dream and the roaring twenties.",
+        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
+        noOfStars: 4,
+        genre: "Fiction"
+    },
+    {
+        bookName: "Pride and Prejudice",
+        authorName: "Jane Austen",
+        imageUrl: img11,
+        shortDescription: "A romantic novel that charts the emotional development of the protagonist Elizabeth Bennet.",
+        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
+        noOfStars: 4,
+        genre: "Romance"
+    },
+    {
+        bookName: "The Catcher in the Rye",
+        authorName: "J.D. Salinger",
+        imageUrl: img11,
+        shortDescription: "A story about adolescent alienation and loss of innocence in the protagonist Holden Caulfield.",
+        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
+        noOfStars: 3,
+        genre: "Fiction"
+    }
+];
+
   return (
     <>
       <div
@@ -145,11 +195,11 @@ export default function Home() {
           </p>
         </div>
         <div className="flex justify-around items-center flex-wrap gap-y-4 md:gap-4 lg:w-[1000px] m-auto py-10 ">
-          <Card1 />
-          <Card1 />
-          <Card1 />
-          <Card1 />
-          <Card1 />
+         {
+          books.map((ele,index)=>(
+            <Card1 book={ele} key={index} />
+          ))
+         }
         </div>
       </div>
       {/* Author section */}

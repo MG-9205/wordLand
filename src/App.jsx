@@ -48,7 +48,6 @@ function App() {
   return (
     <>
       <RouterProvider router={route}>
-        <h1>Welcome to WordLand </h1>
       </RouterProvider>
     </>
   );
