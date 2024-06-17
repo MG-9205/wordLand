@@ -166,7 +166,7 @@ export default function Home() {
         </div>
         <div className="flex gap-5 pt-6">
           <button className="bg-primary text-white w-[150px] h-[40px] rounded-[25px] transition-all duration-500 hover:translate-y-[-0.25rem]">
-            <NavLink>Explore!</NavLink>
+            <NavLink to='Explore'>Explore!</NavLink>
           </button>
           <button className=" text-primary font-semibold w-[150px] h-[40px] rounded-[25px] border-primary border-2  transition-all duration-500 hover:translate-y-[-0.25rem] ">
             <NavLink>Contact us</NavLink>

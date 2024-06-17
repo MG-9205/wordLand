@@ -40,4 +40,4 @@ const DetailCard = ({ show, onClose, book }) => {
   );
 };
 
-export default Modal;
+export default DetailCard;

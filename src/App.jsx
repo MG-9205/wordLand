@@ -4,6 +4,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import ReadingSection from "./pages/ReadingSection";
+import Explore from "./pages/Explore";
 const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 
@@ -23,8 +25,12 @@ const route = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Home/>,
       },
+      {
+        path:"/Explore",
+        element: <Explore/>
+      }
     ],
   },
   {
