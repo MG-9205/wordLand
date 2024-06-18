@@ -16,17 +16,17 @@ export default function Card1({book}) {
   return (
     <>
     <div className=" flex flex-col justify-center items-center gap-2 ">
-          <div className="h-[210px] w-[150px] ">
-            <img src={book.imageUrl} alt="" className="h-[210px] w-[150px] object-cover" />
+          <div className="h-[170px] w-[120px] ">
+            <img src={book.ImageUrl} alt="" className="h-[170px] w-[120px] object-cover" />
           </div>
-          <div className="flex flex-col gap-1 font-Montserrat justify-center items-center">
+          <div className="flex flex-col gap-1 font-Montserrat justify-around items-center min-h-[140px]">
             <span className="flex gap-1">
-            {Array.from({ length: book.noOfStars }).map((_, index) => (
+            {Array.from({ length: book.Star }).map((_, index) => (
                         <svg
                             key={index}
                             xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
+                            width="18"
+                            height="18"
                             viewBox="0 0 24 24"
                             fill="yellow"
                             stroke="none"
@@ -40,8 +40,8 @@ export default function Card1({book}) {
                     ))}
          
  </span>
-            <span className="font-bold text-[1.6rem] font-DancingScript text-center w-[150px]">{book.bookName}</span>
-            <span className="font- text-[1rem] text-center w-[150px]">{book.authorName}</span>
+            <span className="font-bold text-[1.2rem] font-DancingScript text-center w-[100px]">{book.Book_name}</span>
+            <span className="font- text-[0.8rem] text-center w-[110px]">{book.Author_name}</span>
             <span
                         className="font-semibold text-primary hover:text-red-800 cursor-pointer"
                         onClick={handleReadNowClick}

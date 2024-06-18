@@ -30,6 +30,9 @@ const route = createBrowserRouter([
       {
         path:"/Explore",
         element: <Explore/>
+      },{
+        path:"/ReadingSection",
+        element:<ReadingSection/>
       }
     ],
   },

@@ -65,6 +65,7 @@ function AuthorSection() {
         setAuthorData(authors[count - 1]);
       }
     }, 10000);
+
     return () => clearInterval(Interval);
   }, []);
 
@@ -100,50 +101,59 @@ export default function Home() {
 
   const books = [
     {
-        bookName: "To Kill a Mockingbird",
-        authorName: "Harper Lee",
-        imageUrl:img11,
-        shortDescription: "A novel about the serious issues of rape and racial inequality.",
-        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
-        noOfStars: 5,
-        genre: "Fiction"
+      "Genre": "Mystery",
+      "Book_name": "Looking for Trouble",
+      "Star": 4,
+      "Author_name": "Cath Staincliffe",
+      "ImageUrl": "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/mystry%2FLooking%20for%20Trouble.jpg?alt=media&token=71911656-7e28-4063-a471-587611ce3a34",
+      "Description": "She’s a single parent. A private eye. And liking it. Until, that is, Mrs Hobbs turns up asking Sal Kilkenny to find her missing son. Sal’s search takes her through the Manchester underworld, a world of deprivation, of well-heeled organized crime and, ultimately, murder.",
+      "PDFUrl": "https://drive.google.com/file/d/10046TvW7m-LT-2kOl2SkQpFDtHJ3Gbbv/preview"
     },
     {
-        bookName: "To Kill a Mockingbird",
-        authorName: "George Orwell",
-        imageUrl: img11,
-        shortDescription: "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.",
-        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
-        noOfStars: 4,
-        genre: "Dystopian"
+      "Genre": "Mystery",
+      "Book_name": "The Taint of Midas",
+      "Star": 5,
+      "Author_name": "Anne Zouroudi",
+      "ImageUrl": "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/mystry%2FThe%20Taint%20of%20Midas.jpg?alt=media&token=6d7631bb-c6b2-4fa7-a069-3fa2f98441df",
+      "Description": "Gabrilis Kaloyeros is a bee-keeper on the beautiful Greek island of Arcadia. The ruined Temple of Apollo has been in his care for decades, and he has worked to protect it. But when crooked developers take over the island and the value of the land soars, he is persuaded through unscrupulous means to sign away his interest.",
+      "PDFUrl": "https://drive.google.com/file/d/1ETqes8rugWVs4HS-XmvpxUDJa9lcG188/preview"
     },
     {
-        bookName: "The Great Gatsby",
-        authorName: "F. Scott Fitzgerald",
-        imageUrl: img11,
-        shortDescription: "A novel about the American dream and the roaring twenties.",
-        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
-        noOfStars: 4,
-        genre: "Fiction"
+      "Genre": "Mystery",
+      "Book_name": "Bloody Secrets",
+      "Star": 3,
+      "Author_name": "Carolina Garcia",
+      "ImageUrl": "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/mystry%2FBloody%20Secrets.jpg?alt=media&token=2564a1dc-26ad-4d88-bc95-7aea04b275a9",
+      "Description": "Miami private detective Lupe Solano comes to the aid of a young refugee from Havana, who claims that Miami’s most prominent couple has robbed his family and has arranged for his own murder.",
+      "PDFUrl": "https://drive.google.com/file/d/1011rd7MQvmpjiCkCarnUjBbLTQgK4FrU/preview"
     },
     {
-        bookName: "Pride and Prejudice",
-        authorName: "Jane Austen",
-        imageUrl: img11,
-        shortDescription: "A romantic novel that charts the emotional development of the protagonist Elizabeth Bennet.",
-        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
-        noOfStars: 4,
-        genre: "Romance"
+      "Genre": "Mystery",
+      "Book_name": "The Dinner Guests",
+      "Star": 4,
+      "Author_name": "Kiersten Modglin",
+      "ImageUrl": "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/mystry%2FThe%20Dinner%20Guests.jpg?alt=media&token=f85b068a-e6f1-478f-b57a-eb39893e638b",
+      "Description": "Six friends. A lifetime of secrets. One terrifying game. When a group of friends receives unexpected invitations to a dinner party, they see it as a chance to finally meet the bizarre and reclusive new neighbor whose home is enshrouded in layers of security.",
+      "PDFUrl": "https://drive.google.com/file/d/10akKNrmH8lHbA7YrrYijyAoqGFP0Du2T/preview"
     },
     {
-        bookName: "The Catcher in the Rye",
-        authorName: "J.D. Salinger",
-        imageUrl: img11,
-        shortDescription: "A story about adolescent alienation and loss of innocence in the protagonist Holden Caulfield.",
-        pdfLink: "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/The_Jungle_Book.pdf?alt=media&token=c1f7f076-7e0b-435d-b8c9-d4a5cd74197f",
-        noOfStars: 3,
-        genre: "Fiction"
-    }
+      "Genre": "Mystery",
+      "Book_name": "Death of a Writer",
+      "Star": 5,
+      "Author_name": "Michael Collins",
+      "ImageUrl": "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/mystry%2FDeath%20of%20a%20Writer.jpg?alt=media&token=e81494bd-feb1-4f01-9bb2-d4f6b546d65c",
+      "Description": "For Robert Pendleton, a professor clinging to tenure and living in the shambles of his once-bright literary career, death seems to be the only remaining option. But his suicide attempt fails, halted at the last moment by the intervention of Adi Wiltshire, a graduate student battling her own demons of failure and thwarted ambition.",
+      "PDFUrl": "https://drive.google.com/file/d/1Hve9w7daF_RmBD8tGpPpJ7TAIsP7BErp/preview"
+    },
+    {
+      "Genre": "Mystery",
+      "Book_name": "Go Not : Gently",
+      "Star": 3,
+      "Author_name": "Cath Staincliffe",
+      "ImageUrl": "https://firebasestorage.googleapis.com/v0/b/wordland-abad6.appspot.com/o/mystry%2FGo%20Not%20Gently.jpg?alt=media&token=9c84356d-623e-4bdf-9f20-07c43263fbfb",
+      "Description": "Juggling the school run with private investigating, Sal Kilkenny’s life is a strange mix of the dramatic with the domestic. Sal has two new Jimmy Achebe wants her to confirm his suspicions of his wife’s infidelity and Agnes Donlan fears for her friend Lily.",
+      "PDFUrl": "https://drive.google.com/file/d/1HXKNNI0hCYcYrDer2Ay4QGP4oDh6yXil/preview"
+    },
 ];
 
   return (
@@ -194,7 +204,7 @@ export default function Home() {
             beyond the ordinary
           </p>
         </div>
-        <div className="flex justify-around items-center flex-wrap gap-y-4 md:gap-4 lg:w-[1000px] m-auto py-10 ">
+        <div className="flex justify-around items-center flex-wrap gap-y-4  gap-x-3 md:gap-4 lg:w-[1000px] m-auto py-10 ">
          {
           books.map((ele,index)=>(
             <Card1 book={ele} key={index} />
