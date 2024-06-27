@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/images/Logo.png";
-import { Linkedin, Instagram, Twitter } from "lucide-react";
+import { Linkedin, Instagram, Twitter, Github } from "lucide-react";
 
 const Footer = React.memo(() => {
   return (
@@ -20,9 +20,10 @@ const Footer = React.memo(() => {
             </span>
           </div>
           <div className="flex gap-6 py-4">
-            <Linkedin />
-            <Instagram />
-            <Twitter />
+            <a href="https://www.linkedin.com/in/manishgupta31" target="blank"><Linkedin /></a>
+            <a href="https://www.linkedin.com/in/manishgupta31" target="blank"> <Instagram /></a>
+           <a href="https://twitter.com/Manish_Gupta31" target="blank"> <Twitter /></a>
+           <a href="https://github.com/MG-9205" target="blank"><Github/></a>
           </div>
           <div>© 2023 Wordland. All rights reserved.</div>
         </div>
@@ -30,14 +31,14 @@ const Footer = React.memo(() => {
           <div className="flex flex-col gap-1">
             <span className="font-semibold">Quick Link</span>
             <span>Home</span>
-            <span>Blogs</span>
+            <span>Library</span>
             <span>FeedBack</span>
           </div>
           <div className="flex flex-col gap-1">
             <span className="font-semibold">Contact us</span>
-            <span>Linkedin</span>
-            <span>Instagram</span>
-            <span>Twitter</span>
+            <span><a href="https://www.linkedin.com/in/manishgupta31" target="blank">Linkedin</a></span>
+            <span><a href="https://www.linkedin.com/in/manishgupta31" target="blank">Instagram</a></span>
+            <span><a href="https://twitter.com/Manish_Gupta31" target="blank">Twitter</a></span>
           </div>
         </div>
       </div>

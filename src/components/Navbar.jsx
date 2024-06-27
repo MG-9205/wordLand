@@ -1,34 +1,113 @@
 import { memo, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Search, User, X, AlignJustify } from "lucide-react";
 import logo from "../assets/images/Logo.png";
+import { searchState } from "../../store/BookAtom";
+import { useSetRecoilState, useRecoilState } from "recoil";
+import { userState } from "../../store/UserAtom";
+import { toast } from "react-toastify";
+const SearchBox = memo(() => {
+  const setSearch = useSetRecoilState(searchState);
+  const [searchValue, setSearchValue] = useState("");
+  const Navigate = useNavigate();
 
-const SearchBox = memo(() => (
-  <div className="flex justify-between bg-slate-400 py-2 px-3 rounded-[50px]">
-    <input
-      type="text"
-      name="SearchBox"
-      placeholder="Search"
-      className="bg-slate-200 px-3 text-[1rem] rounded-[20px] h-[30px] w-[130px] border-none outline-none"
-    />
-    <div className="flex justify-center items-center pl-2 text-white">
-      <Search />
-    </div>
-  </div>
-));
+  const handleSearch = () => {
+    setSearch({
+      action: "Search",
+      Word: searchValue,
+    });
+    Navigate("/Search");
+  };
 
-const LoginButton = memo(({ visibility }) => (
-  <div
-    className={`${visibility} flex justify-center items-center gap-1 bg-slate-400 py-2 px-2 rounded-[25px] w-[140px]`}
-  >
-    <button className="bg-black rounded-[25px] px-5 h-[30px] text-white text-[1rem]">
-      <Link to="/Login">Login</Link>
-    </button>
-    <div className="rounded-full bg-black w-[30px] h-[30px] flex justify-center items-center">
-      <User className="text-white" />
+  return (
+    <div className="flex justify-between bg-slate-400 py-2 px-3 rounded-[50px]">
+      <input
+        type="text"
+        name="SearchBox"
+        placeholder="Search"
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        className="bg-slate-200 px-3 text-[1rem] rounded-[20px] h-[30px] w-[130px] border-none outline-none"
+      />
+      <div className="flex justify-center items-center pl-2 text-white">
+        <Search onClick={handleSearch} />
+      </div>
     </div>
-  </div>
-));
+  );
+});
+
+const LoginButton = memo(({ visibility, setShow }) => {
+  const [UserState, SetUser] = useRecoilState(userState);
+  const Navigate = useNavigate();
+  const handleLoginButton = (e) => {
+    e.preventDefault();
+    if (UserState == "Login") {
+      Navigate("/Login");
+    } else {
+      setShow((perv) => !perv);
+    }
+  };
+
+  return (
+    <div
+      className={`${visibility} flex justify-center items-center gap-1 bg-slate-400 py-2 px-2 rounded-[25px] w-[100%]`}
+    >
+      <button
+        className="bg-black rounded-[25px] px-5 h-[30px] text-white text-[1rem] cursor-pointer"
+        onClick={(e) => handleLoginButton(e)}
+      >
+        {UserState}
+      </button>
+      <div className="rounded-full bg-black w-[30px] h-[30px] flex justify-center items-center">
+        <User className="text-white" />
+      </div>
+    </div>
+  );
+});
+
+const Logout = ({ show, setShow }) => {
+  const [UserState, SetUser] = useRecoilState(userState);
+  const handleLogout = (e) => {
+    e.preventDefault();
+    SetUser("Login");
+    localStorage.clear();
+    setShow((perv) => !perv);
+    toast.success("Logout successfully ", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  if (!show) {
+    return null;
+  }
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-20 flex justify-center items-center z-50 font-Montserrat top-[50vh]">
+      <div className="bg-primary relative p-6 rounded-lg shadow-lg w-[90%]  max-w-[530px] flex flex-col   justify-center items-center gap-4">
+        <div className="text-[1.5rem] font-semibold">You want Logout!!</div>
+        <div className="flex gap-4">
+          <button
+            className="bg-black rounded-[10px] py-3 px-4 text-white"
+            onClick={(e) => handleLogout(e)}
+          >
+            Logout
+          </button>
+          <button
+            className="bg-white rounded-[10px] py-3 px-4 font-bold"
+            onClick={() => setShow((perv) => !perv)}
+          >
+            cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const GenreList = [
   "Fantasy",
@@ -46,10 +125,13 @@ const GenreList = [
 ];
 
 const Navbar = () => {
+  const Navigate = useNavigate();
+  const setSearch = useSetRecoilState(searchState);
   const [state, setState] = useState({
     isGenreOpen: false,
     isMenuOpen: false,
   });
+  const [show, setShow] = useState(false);
 
   const toggleGenreList = () => {
     setState((prevState) => ({
@@ -65,8 +147,27 @@ const Navbar = () => {
     }));
   };
 
+  const handleGenreSearch = (genre) => {
+    setState((prevState) => ({
+      ...prevState,
+      isGenreOpen: !prevState.isGenreOpen,
+    }));
+    setSearch({
+      action: "Genre",
+      Word: genre,
+    });
+    Navigate("/Search");
+  };
+
+  const handleNavbar = () => {
+    setState((prevState) => ({
+      ...prevState,
+      isMenuOpen: !prevState.isMenuOpen,
+    }));
+  };
+
   return (
-    <header className=" z-50 flex justify-between h-[70px] fixed  bg-black bg-opacity-50 backdrop-blur-sm w-full font-Montserrat md:px-8 px-4">
+    <header className=" z-50 flex justify-between h-[70px] fixed  bg-black bg-opacity-50 md:backdrop-blur-sm backdrop-blur-0 w-full font-Montserrat md:px-8 px-4">
       <div className="flex items-center gap-6">
         <img src={logo} alt="Logo" />
         <nav className="hidden lg:flex">
@@ -88,6 +189,7 @@ const Navbar = () => {
                     <li
                       key={`genreid${index}`}
                       className="w-[70px] text-white hover:text-red-600"
+                      onClick={() => handleGenreSearch(genre)}
                     >
                       {genre}
                     </li>
@@ -96,7 +198,7 @@ const Navbar = () => {
               </div>
             </li>
             <li className="hover:bg-slate-400 px-5 py-2 rounded-[25px]">
-              <NavLink to="/profile">Blogs</NavLink>
+              <NavLink to="/Library">Library</NavLink>
             </li>
             <li className="hover:bg-slate-400 px-5 py-2 rounded-[25px]">
               <NavLink to="/feedback">Feedback</NavLink>
@@ -106,7 +208,11 @@ const Navbar = () => {
       </div>
       <div className="flex items-center gap-5">
         <SearchBox />
-        <LoginButton visibility="hidden lg:flex" />
+        <LoginButton
+          visibility="hidden lg:flex"
+          show={show}
+          setShow={setShow}
+        />
         <div className="text-white flex gap-2 lg:hidden">
           <X
             onClick={toggleMenu}
@@ -125,7 +231,9 @@ const Navbar = () => {
       >
         <ul className="flex flex-col gap-2 text-[1.1rem] text-white pb-2">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" onClick={handleNavbar}>
+              Home
+            </NavLink>
           </li>
           <li>
             <span onClick={toggleGenreList} className="cursor-pointer">
@@ -141,6 +249,7 @@ const Navbar = () => {
                   <li
                     key={`genreid${index}`}
                     className="w-[70px] text-white hover:text-red-600"
+                    onClick={() => handleGenreSearch(genre)}
                   >
                     {genre}
                   </li>
@@ -149,14 +258,19 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <NavLink to="/profile">Blogs</NavLink>
+            <NavLink to="/Library" onClick={handleNavbar}>
+              Library
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/feedback">Feedback</NavLink>
+            <NavLink to="/feedback" onClick={handleNavbar}>
+              Feedback
+            </NavLink>
           </li>
         </ul>
-        <LoginButton />
+        <LoginButton show={show} setShow={setShow} />
       </div>
+      <Logout show={show} setShow={setShow} />
     </header>
   );
 };

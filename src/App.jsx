@@ -3,9 +3,16 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import { RecoilRoot } from "recoil";
+import Search from "./pages/Search";
 import ReadingSection from "./pages/ReadingSection";
-import Explore from "./pages/Explore";
+import FeedBack from "./pages/FeedBack";
+import Library from "./pages/Library";
+import Loader from "./components/Loader";
+
+const Explore = lazy(() => import("./pages/Explore"));
+const Home = lazy(() => import("./pages/Home"));
+
 const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 
@@ -25,21 +32,42 @@ const route = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
-        path:"/Explore",
-        element: <Explore/>
-      },{
-        path:"/ReadingSection",
-        element:<ReadingSection/>
-      }
+        path: "/Explore",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Explore />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/ReadingSection",
+        element: <ReadingSection />,
+      },
+      {
+        path: "/Search",
+        element: <Search />,
+      },
+      {
+        path: "/FeedBack",
+        element: <FeedBack />,
+      },
+      {
+        path: "/Library",
+        element: <Library />,
+      },
     ],
   },
   {
     path: "/Login",
     element: (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Login />
       </Suspense>
     ),
@@ -47,7 +75,7 @@ const route = createBrowserRouter([
   {
     path: "/SignUp",
     element: (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <SignUp />
       </Suspense>
     ),
@@ -56,8 +84,9 @@ const route = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={route}>
-      </RouterProvider>
+      <RecoilRoot>
+        <RouterProvider router={route}></RouterProvider>
+      </RecoilRoot>
     </>
   );
 }
