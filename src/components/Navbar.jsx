@@ -188,7 +188,7 @@ const Navbar = () => {
                   {GenreList.map((genre, index) => (
                     <li
                       key={`genreid${index}`}
-                      className="w-[70px] text-white hover:text-red-600"
+                      className="w-[70px] text-white hover:text-red-600 cursor-pointer"
                       onClick={() => handleGenreSearch(genre)}
                     >
                       {genre}

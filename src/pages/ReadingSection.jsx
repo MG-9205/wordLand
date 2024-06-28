@@ -94,7 +94,7 @@ export default function ReadingSection() {
           <div className="flex flex-col border-l-2 border-primary pl-5 md:mb-0 mb-6 pr-2">
             <div className="text-primary font-semibold">Short Description</div>
             <div>
-              <p className="w-[400px]">
+              <p className="md:w-[400px] w-[100%] h-fit pr-1">
                 {truncateText(currentBook.Description, 100)}
               </p>
             </div>

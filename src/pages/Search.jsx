@@ -69,9 +69,11 @@ export default function Search() {
   const Books = useRecoilValue(bookDataSelector);
 
   const myBook = useMemo(() => {
+    if(Books.Books){
     if (searchState1.action === "Genre") {
       return Books.Books.filter((book) => book.Genre === searchState1.Word);
     }
+
     if (searchState1.action === "Search") {
       const word = searchState1.Word.toLowerCase();
       return Books.Books.filter(
@@ -80,7 +82,7 @@ export default function Search() {
           book.Genre.toLowerCase().includes(word) ||
           book.Author_name.toLowerCase().includes(word)
       );
-    }
+    }}
     return [];
   }, [searchState1, Books]);
 

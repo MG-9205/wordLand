@@ -48,12 +48,16 @@ export default function Library() {
   }, [userStateValue, navigate]);
 
   useEffect(() => {
+    if(BookData.Books){
     if (bookIDs.length > 0 && BookData.Books.length > 0) {
       const filteredBooks = BookData.Books.filter((book) =>
         bookIDs.includes(book._id)
       );
       setLibraryBook(filteredBooks);
+    }}else{
+      setLibraryBook([]);
     }
+  
   }, [bookIDs, BookData]);
 
   if (userStateValue === "Login") {

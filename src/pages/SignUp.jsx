@@ -17,8 +17,26 @@ export default function SignUp() {
 
   const Navigate = useNavigate();
 
+  const CheckUsername=(value)=>{
+    return /\d/.test(value)
+  }
+
   const handleSignin = async (e) => {
     e.preventDefault();
+        if(!CheckUsername(signInData.Username)){
+          toast.error("Username must cantain numbers", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          return
+        }
+    
     const res = await fetch(`${import.meta.env.VITE_API_URL}/user/signup`, {
       method: "POST",
       headers: {
@@ -62,6 +80,11 @@ export default function SignUp() {
         progress: undefined,
         theme: "light",
       });
+      setSignInData({
+        Username: "",
+        Password: "",
+        Email: "",
+      });
     }
   };
 
@@ -87,7 +110,7 @@ export default function SignUp() {
             <div className="w-full flex flex-col">
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="Username must contain number"
                 name="Username"
                 value={signInData.Username}
                 onChange={(e) =>
