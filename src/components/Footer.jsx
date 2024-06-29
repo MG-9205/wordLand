@@ -21,7 +21,7 @@ const Footer = React.memo(() => {
           </div>
           <div className="flex gap-6 py-4">
             <a href="https://www.linkedin.com/in/manishgupta31" target="blank"><Linkedin /></a>
-            <a href="https://www.linkedin.com/in/manishgupta31" target="blank"> <Instagram /></a>
+            <a href="https://www.instagram.com/manish_gupta31/" target="blank"> <Instagram /></a>
            <a href="https://twitter.com/Manish_Gupta31" target="blank"> <Twitter /></a>
            <a href="https://github.com/MG-9205" target="blank"><Github/></a>
           </div>
@@ -37,7 +37,7 @@ const Footer = React.memo(() => {
           <div className="flex flex-col gap-1">
             <span className="font-semibold">Contact us</span>
             <span><a href="https://www.linkedin.com/in/manishgupta31" target="blank">Linkedin</a></span>
-            <span><a href="https://www.linkedin.com/in/manishgupta31" target="blank">Instagram</a></span>
+            <span><a href="https://www.instagram.com/manish_gupta31/" target="blank">Instagram</a></span>
             <span><a href="https://twitter.com/Manish_Gupta31" target="blank">Twitter</a></span>
           </div>
         </div>
