@@ -116,12 +116,9 @@ const GenreList = [
   "Romance",
   "Thriller",
   "Biography",
-  "Science",
   "Literary",
   "Historical",
   "Adventure",
-  "Action",
-  "Magical",
 ];
 
 const Navbar = () => {
